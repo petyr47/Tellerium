@@ -1,9 +1,14 @@
 package com.aneke.peter.tellerium.network.models
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "farmer_table")
 data class Farmer(
+
+    @PrimaryKey(autoGenerate = true)
+    var id : Int = 0,
+
     val address: String,
     val bvn: String,
     val city: String,
