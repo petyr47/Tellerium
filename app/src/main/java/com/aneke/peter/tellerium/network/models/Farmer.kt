@@ -1,5 +1,8 @@
 package com.aneke.peter.tellerium.network.models
 
+import androidx.room.Entity
+
+@Entity(tableName = "farmer_table")
 data class Farmer(
     val address: String,
     val bvn: String,
