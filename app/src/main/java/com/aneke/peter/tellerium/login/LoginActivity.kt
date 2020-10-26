@@ -1,11 +1,13 @@
 package com.aneke.peter.tellerium.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.aneke.peter.tellerium.R
+import com.aneke.peter.tellerium.dashboard.DashboardActivity
 import com.aneke.peter.tellerium.databinding.ActivityLoginBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.log
@@ -26,6 +28,15 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.errorMessage.observe(this, Observer {
             it?.let { message ->
                 showMessage(message)
+            }
+        })
+
+        loginViewModel.userVerified.observe(this, Observer {
+            it?.let { success ->
+                if (success) {
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                    finish()
+                }
             }
         })
     }
