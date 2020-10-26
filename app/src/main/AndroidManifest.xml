@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tellerium">
+        android:theme="@style/Theme.TelleriumLight">
         <activity android:name=".dashboard.DashboardActivity"
             android:screenOrientation="portrait"/>
         <activity
