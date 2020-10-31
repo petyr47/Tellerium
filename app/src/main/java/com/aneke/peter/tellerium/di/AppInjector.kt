@@ -7,6 +7,8 @@ import com.aneke.peter.tellerium.data.PrefStore
 import com.aneke.peter.tellerium.login.LoginRepository
 import com.aneke.peter.tellerium.login.LoginViewModel
 import com.aneke.peter.tellerium.network.RetrofitClient
+import com.aneke.peter.tellerium.update.UpdateRepository
+import com.aneke.peter.tellerium.update.UpdateViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -19,12 +21,14 @@ private val dataModule = module {
 private val repositoryModule = module {
     single { LoginRepository(get()) }
     single { DashboardRepository(get(), get(), get()) }
+    single { UpdateRepository(get()) }
 
 }
 
 private val viewModels = module {
     viewModel { LoginViewModel(get()) }
     viewModel { DashboardViewModel(get()) }
+    viewModel { UpdateViewModel(get()) }
 
 }
 
