@@ -1,9 +1,12 @@
 package com.aneke.peter.tellerium.dashboard
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.aneke.peter.tellerium.data.AppDatabase
 import com.aneke.peter.tellerium.data.PrefStore
 import com.aneke.peter.tellerium.data.Resource
 import com.aneke.peter.tellerium.network.ApiInterface
+import com.aneke.peter.tellerium.network.models.Farmer
 import retrofit2.HttpException
 import java.net.UnknownHostException
 
@@ -34,6 +37,15 @@ class DashboardRepository(private val service : ApiInterface,
                 return Resource.error("A Network Error occurred, Please check your internet connection")
             }
             return Resource.error(e.message)
+        }
+    }
+
+    fun observeDb() : LiveData<List<Farmer>> {
+        try {
+            return dao.observeAllFarmers()
+        } catch (e : Exception) {
+            e.printStackTrace()
+            return MutableLiveData(listOf())
         }
     }
 }
