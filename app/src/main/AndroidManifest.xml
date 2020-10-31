@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TelleriumLight">
-        <activity android:name=".dashboard.DashboardActivity"
+        <activity android:name=".update.UpdateFarmerActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".login.LoginActivity"
             android:screenOrientation="portrait" />
