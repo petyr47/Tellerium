@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.aneke.peter.tellerium.R
+import com.aneke.peter.tellerium.capture.CaptureActivity
 import com.aneke.peter.tellerium.update.UpdateFarmerActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -45,6 +46,10 @@ class DashboardActivity : AppCompatActivity() {
         viewModel.area.observe(this, {
             farmers_area.text = it
         })
+
+        add_farmer.setOnClickListener {
+            startActivity(Intent(this, CaptureActivity::class.java))
+        }
 
 
     }
