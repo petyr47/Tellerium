@@ -7,6 +7,7 @@ import java.util.*
 const val SHARED_PREF = "shared_pref"
 const val IMAGE_BASE_URL = "image_base_url"
 const val LAST_LOGIN_TIME = "login_time"
+const val FIRST_RUN="first_run"
 const val SESSION_LENGTH = 30 * 60 * 1000 //30 minutes
 
 class PrefStore (private val context : Context) {
@@ -25,6 +26,10 @@ class PrefStore (private val context : Context) {
     var loginTime : Long
         set(value) = editor.putLong(LAST_LOGIN_TIME, value).apply()
         get() = sharedPref.getLong(LAST_LOGIN_TIME, 0)
+
+    var firstRun : Boolean
+        set(value) = editor.putBoolean(FIRST_RUN, value).apply()
+        get() = sharedPref.getBoolean(FIRST_RUN, false)
 
 
 
