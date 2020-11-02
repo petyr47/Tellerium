@@ -34,5 +34,18 @@ class DashboardActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.updated.observe(this, {
+            farmers_updated.text = it
+        })
+
+        viewModel.captured.observe(this, {
+            farmers_captured.text = it
+        })
+
+        viewModel.area.observe(this, {
+            farmers_area.text = it
+        })
+
+
     }
 }
