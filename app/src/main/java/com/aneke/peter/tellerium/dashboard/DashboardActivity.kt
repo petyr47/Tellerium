@@ -1,9 +1,11 @@
 package com.aneke.peter.tellerium.dashboard
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.aneke.peter.tellerium.R
+import com.aneke.peter.tellerium.update.UpdateFarmerActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,8 +19,10 @@ class DashboardActivity : AppCompatActivity() {
 
         val adapter = FarmerAdapter(this)
         adapter.list = listOf()
-        adapter.onItemClicked = { farmer ->  
-            
+        adapter.onItemClicked = { farmer ->
+            val intent = Intent(this, UpdateFarmerActivity::class.java)
+            intent.putExtra("id", farmer.id)
+            startActivity(intent)
         }
         farmer_list.adapter = adapter
 
@@ -29,6 +33,19 @@ class DashboardActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         })
+
+        viewModel.updated.observe(this, {
+            farmers_updated.text = it
+        })
+
+        viewModel.captured.observe(this, {
+            farmers_captured.text = it
+        })
+
+        viewModel.area.observe(this, {
+            farmers_area.text = it
+        })
+
 
     }
 }

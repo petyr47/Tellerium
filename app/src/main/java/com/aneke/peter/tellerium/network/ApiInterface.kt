@@ -7,5 +7,5 @@ import retrofit2.http.Query
 interface ApiInterface {
 
     @GET("get-sample-farmers")
-    suspend fun fetchFarmers(@Query("limit") limit : Int = 20) : FetchFarmerResponse
+    suspend fun fetchFarmers(@Query("limit") limit : Int = 50) : FetchFarmerResponse
 }

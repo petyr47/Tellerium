@@ -33,5 +33,12 @@ data class Farmer(
     val reg_no: String,
     val spouse_name: String,
     val state: String,
-    val surname: String
+    val surname: String,
+
+    //
+    var isUpdated : Boolean = false,
+    var imageUpdated : Boolean = false,
+    var newImageId : String = "",
+    var newPassport : String = ""
+
 )

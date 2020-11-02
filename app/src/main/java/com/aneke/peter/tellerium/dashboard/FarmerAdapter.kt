@@ -36,9 +36,9 @@ class FarmerAdapter(private val context : Context) : RecyclerView.Adapter<Farmer
 
         fun bindFarmer(farmer : Farmer) {
             val name = "${farmer.first_name} ${farmer.middle_name} ${farmer.surname}"
-            itemView.item_address.text = farmer.address
+            itemView.item_address.text = "Address: ${farmer.address}"
             itemView.item_name.text = name
-            val url = "${base}${farmer.id_image}"
+            val url = if (farmer.imageUpdated) farmer.newPassport else  "${base}${farmer.passport_photo}"
             itemView.item_image.load(url)
 
             itemView.rootView.setOnClickListener {
