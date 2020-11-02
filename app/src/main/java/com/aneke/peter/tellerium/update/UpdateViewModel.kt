@@ -34,6 +34,9 @@ class UpdateViewModel(private val repository: UpdateRepository) : ViewModel() {
 
     var url = ""
 
+    var imageUri = ""
+    var imageChanged = false
+
 
 
     fun fetchFarmer(id : Int){
@@ -52,7 +55,7 @@ class UpdateViewModel(private val repository: UpdateRepository) : ViewModel() {
             val address = address.value ?: " "
             val phone = phone.value ?: " "
             val email = email.value ?: " "
-            val newFarmer = farmer.value!!.copy(isUpdated = true, address = address, email_address = email, mobile_no = phone)
+            val newFarmer = farmer.value!!.copy(isUpdated = true, address = address, email_address = email, mobile_no = phone, newPassport = imageUri, imageUpdated = imageChanged)
             repository.updateFarmer(newFarmer)
         }
     }

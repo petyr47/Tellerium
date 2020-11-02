@@ -37,6 +37,7 @@ data class Farmer(
 
     //
     var isUpdated : Boolean = false,
+    var imageUpdated : Boolean = false,
     var newImageId : String = "",
     var newPassport : String = ""
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tellerium</string>
+    <string name="file_provider">Tellerium</string>
 </resources>
