@@ -21,7 +21,7 @@ private val dataModule = module {
 private val repositoryModule = module {
     single { LoginRepository(get()) }
     single { DashboardRepository(get(), get(), get()) }
-    single { UpdateRepository(get()) }
+    single { UpdateRepository(get(),get()) }
 
 }
 
