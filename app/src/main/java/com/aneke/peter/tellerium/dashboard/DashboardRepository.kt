@@ -20,6 +20,7 @@ class DashboardRepository(private val service : ApiInterface,
 
 
     suspend fun populateDb() : Resource<Boolean> {
+        if (!prefStore.firstRun) {
         try {
             val result = service.fetchFarmers()
             if (result.status == "true") {
@@ -27,6 +28,7 @@ class DashboardRepository(private val service : ApiInterface,
                 dao.insertFarmers(farmers)
                 val imageBase = result.data.imageBaseUrl
                 prefStore.imageBaseUrl = imageBase
+                prefStore.firstRun = true
                 return Resource.success(true, "Data updated successfully")
             } else {
                return Resource.error("An Error occurred while fetching farmers")
@@ -37,6 +39,8 @@ class DashboardRepository(private val service : ApiInterface,
                 return Resource.error("A Network Error occurred, Please check your internet connection")
             }
             return Resource.error(e.message)
+        }} else {
+            return Resource.error("Db populated")
         }
     }
 

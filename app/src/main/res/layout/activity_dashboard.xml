@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:padding="8dp"
-                    tools:text="Farmers Fetched"
+                    tools:text="Farmers Captured"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:padding="8dp"
-                    tools:text="Farmers Captured"
+                    tools:text="Square KM captured"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
