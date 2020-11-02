@@ -1,5 +1,6 @@
 package com.aneke.peter.tellerium.di
 
+import com.aneke.peter.tellerium.capture.CaptureViewModel
 import com.aneke.peter.tellerium.dashboard.DashboardRepository
 import com.aneke.peter.tellerium.dashboard.DashboardViewModel
 import com.aneke.peter.tellerium.data.AppDatabase
@@ -29,6 +30,7 @@ private val viewModels = module {
     viewModel { LoginViewModel(get()) }
     viewModel { DashboardViewModel(get()) }
     viewModel { UpdateViewModel(get()) }
+    viewModel { CaptureViewModel(get()) }
 
 }
 
